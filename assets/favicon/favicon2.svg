@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Favicon Intermedios negro y naranja sobre fondo blanco">
+  <rect width="64" height="64" fill="#f3f3f3"/>
+  <polygon points="32,8 56,32 32,56 8,32" fill="#e35d16"/>
+  <polygon points="32,14 50,32 32,50 14,32" fill="#05080a"/>
+  <path d="M11 31 C20 25, 44 39, 53 31" fill="none" stroke="#f3f3f3" stroke-width="4.2" stroke-linecap="round"/>
+</svg>

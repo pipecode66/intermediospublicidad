@@ -4,6 +4,6 @@
   "private": true,
   "description": "Landing page de Intermedios Publicidad",
   "scripts": {
-    "build": "echo \"Static site ready for Vercel\""
+    "build": "node scripts/build.mjs"
   }
 }

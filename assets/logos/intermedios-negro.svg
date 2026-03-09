@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 180" role="img" aria-labelledby="title desc">
+  <title id="title">Intermedios negro</title>
+  <desc id="desc">Logo Intermedios en versión negra para fondos claros.</desc>
+  <g transform="translate(8 18)">
+    <polygon points="72,0 144,72 72,144 0,72" fill="#0a0d10"/>
+    <polygon points="72,18 126,72 72,126 18,72" fill="#0a0d10"/>
+    <path d="M10 70 C38 48, 106 92, 134 70" fill="none" stroke="#f5f7fa" stroke-width="10" stroke-linecap="round"/>
+  </g>
+  <text x="182" y="92" fill="#0a0d10" font-size="86" font-family="Arial Black, Arial, sans-serif" font-weight="900" letter-spacing="1.5">INTERMEDIOS</text>
+  <line x1="184" y1="110" x2="886" y2="110" stroke="#0a0d10" stroke-width="6"/>
+  <text x="250" y="156" fill="#0a0d10" font-size="38" font-family="Arial Black, Arial, sans-serif" font-weight="800" letter-spacing="2">PUBLICIDAD &amp; ARQUITECTURA</text>
+</svg>

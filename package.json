@@ -1,0 +1,9 @@
+{
+  "name": "intermediospublicidad",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page de Intermedios Publicidad",
+  "scripts": {
+    "build": "echo \"Static site ready for Vercel\""
+  }
+}

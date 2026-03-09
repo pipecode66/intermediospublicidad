@@ -1,11 +1,9 @@
 # Favicons
 
-Copia aquí los 3 archivos PNG con estos nombres:
+La web usa por defecto `favicon2.svg` y también incluye:
 
-- `favicon1.png` (fondo blanco, logo negro)
-- `favicon2.png` (fondo blanco, logo negro y naranja)
-- `favicon3.png` (fondo negro, logo naranja)
+- `favicon1.svg` (fondo blanco, logo negro)
+- `favicon2.svg` (fondo blanco, logo negro y naranja)
+- `favicon3.svg` (fondo negro, logo naranja)
 
-La web está configurada para usar por defecto:
-
-- `favicon2.png`
+Si quieres usar PNG más adelante, cambia las etiquetas `link rel="icon"` en `index.html`.

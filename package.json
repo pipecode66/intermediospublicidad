@@ -4,6 +4,8 @@
   "private": true,
   "description": "Landing page de Intermedios Publicidad",
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "dev": "npx serve .",
+    "build": "node scripts/build.mjs",
+    "start": "npx serve dist"
   }
 }

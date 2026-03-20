@@ -458,7 +458,7 @@ section {
   width: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(14, 17, 18, 0.95));
+  background: #07090a;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -469,12 +469,12 @@ section {
   background: #000;
 }
 
-.video-meta,
+.video-caption,
 .service-body {
   padding: 0.95rem 1rem 1.05rem;
 }
 
-.video-meta strong,
+.video-caption strong,
 .project-copy h3,
 .service-body h3 {
   display: block;
@@ -484,10 +484,17 @@ section {
   letter-spacing: 0.03em;
 }
 
-.video-meta span,
+.video-caption span,
 .service-body p {
   color: var(--color-muted);
   font-size: 0.92rem;
+}
+
+.video-caption {
+  margin-top: 0.95rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .panel-link {

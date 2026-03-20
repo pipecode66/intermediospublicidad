@@ -68,6 +68,8 @@ sliders.forEach((slider) => {
   const track = slider.querySelector("[data-slider-track]");
   const prev = slider.querySelector("[data-slider-prev]");
   const next = slider.querySelector("[data-slider-next]");
+  const captionTitle = slider.querySelector("[data-video-caption-title]");
+  const captionDescription = slider.querySelector("[data-video-caption-description]");
 
   if (!track || !prev || !next) {
     return;
@@ -117,6 +119,12 @@ sliders.forEach((slider) => {
         });
       }
     });
+
+    const activeCard = cards[index];
+    if (activeCard && captionTitle && captionDescription) {
+      captionTitle.textContent = activeCard.dataset.videoTitle || "";
+      captionDescription.textContent = activeCard.dataset.videoDescription || "";
+    }
   };
 
   const render = () => {

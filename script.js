@@ -6,7 +6,9 @@ const revealItems = document.querySelectorAll(".reveal, .reveal-stagger");
 const year = document.getElementById("year");
 const logos = document.querySelectorAll(".logo-asset");
 const carousels = document.querySelectorAll("[data-carousel]");
+const sliders = document.querySelectorAll("[data-slider]");
 const loopingTracks = document.querySelectorAll("[data-loop-track]");
+let audioUnlocked = false;
 
 if (year) {
   year.textContent = new Date().getFullYear();
@@ -36,6 +38,153 @@ loopingTracks.forEach((track) => {
   });
 
   track.dataset.cloned = "true";
+});
+
+const unlockVideoAudio = () => {
+  if (audioUnlocked) {
+    return;
+  }
+
+  audioUnlocked = true;
+
+  const activeVideo = document.querySelector(
+    '[data-slider="video"] .slider-card.is-active video'
+  );
+
+  if (!activeVideo) {
+    return;
+  }
+
+  activeVideo.muted = false;
+  activeVideo.volume = 0.35;
+  activeVideo.play().catch(() => {});
+};
+
+window.addEventListener("pointerdown", unlockVideoAudio, { once: true });
+window.addEventListener("keydown", unlockVideoAudio, { once: true });
+
+sliders.forEach((slider) => {
+  const type = slider.dataset.slider || "";
+  const track = slider.querySelector("[data-slider-track]");
+  const prev = slider.querySelector("[data-slider-prev]");
+  const next = slider.querySelector("[data-slider-next]");
+
+  if (!track || !prev || !next) {
+    return;
+  }
+
+  const cards = Array.from(track.children);
+  let index = 0;
+  let timerId = null;
+  const interval = Number(slider.dataset.sliderInterval || "0");
+
+  const getStep = () => {
+    const card = cards[0];
+    if (!card) {
+      return 320;
+    }
+
+    const gap = Number.parseFloat(window.getComputedStyle(track).gap || "0");
+    return card.getBoundingClientRect().width + gap;
+  };
+
+  const syncActiveVideo = () => {
+    if (type !== "video") {
+      return;
+    }
+
+    cards.forEach((card, cardIndex) => {
+      const video = card.querySelector("video");
+      if (!video) {
+        return;
+      }
+
+      video.volume = 0.35;
+
+      if (cardIndex !== index) {
+        video.pause();
+        video.currentTime = 0;
+        return;
+      }
+
+      video.muted = false;
+      const playAttempt = video.play();
+
+      if (playAttempt && typeof playAttempt.catch === "function") {
+        playAttempt.catch(() => {
+          video.muted = !audioUnlocked;
+          video.play().catch(() => {});
+        });
+      }
+    });
+  };
+
+  const render = () => {
+    const step = getStep();
+    cards.forEach((card, cardIndex) => {
+      card.classList.toggle("is-active", cardIndex === index);
+    });
+    track.style.transform = `translateX(${-step * index}px)`;
+    syncActiveVideo();
+  };
+
+  const stopTimer = () => {
+    if (timerId) {
+      clearInterval(timerId);
+      timerId = null;
+    }
+  };
+
+  const startTimer = () => {
+    if (!interval) {
+      return;
+    }
+
+    stopTimer();
+    timerId = setInterval(() => {
+      index = (index + 1) % cards.length;
+      render();
+    }, interval);
+  };
+
+  const goTo = (nextIndex) => {
+    index = (nextIndex + cards.length) % cards.length;
+    render();
+
+    if (type !== "video") {
+      startTimer();
+    }
+  };
+
+  prev.addEventListener("click", () => {
+    goTo(index - 1);
+  });
+
+  next.addEventListener("click", () => {
+    goTo(index + 1);
+  });
+
+  if (type === "video") {
+    cards.forEach((card, cardIndex) => {
+      const video = card.querySelector("video");
+      if (!video) {
+        return;
+      }
+
+      video.addEventListener("ended", () => {
+        if (cardIndex === index) {
+          goTo(index + 1);
+        }
+      });
+    });
+  } else {
+    startTimer();
+    slider.addEventListener("mouseenter", stopTimer);
+    slider.addEventListener("mouseleave", startTimer);
+  }
+
+  window.addEventListener("resize", render);
+  render();
 });
 
 carousels.forEach((carousel) => {

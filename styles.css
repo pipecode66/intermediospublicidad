@@ -166,6 +166,46 @@ video {
   color: var(--color-primary);
 }
 
+.nav-zivra {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.08rem;
+  margin-right: 0.35rem;
+  padding-right: 0.7rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.nav-zivra-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  background: linear-gradient(110deg, #ffffff 18%, #ffffff 34%, #66ff99 50%, #ffffff 66%, #ffffff 82%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: zivra-flow 3.2s linear infinite;
+}
+
+.nav-zivra small {
+  font-size: 0.54rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9df5c0;
+}
+
+@keyframes zivra-flow {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -60% 0;
+  }
+}
+
 .menu-toggle {
   display: none;
   border: 0;
@@ -388,8 +428,23 @@ section {
   scroll-snap-align: start;
 }
 
-.video-carousel .carousel-card {
-  flex-basis: clamp(248px, 31vw, 320px);
+.slider-window {
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+.slider-card {
+  min-width: 0;
+}
+
+.video-slider-track .slider-card {
+  flex: 0 0 100%;
 }
 
 .video-card {
@@ -401,7 +456,7 @@ section {
 
 .video-card video {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   background: #000;
 }
@@ -444,13 +499,17 @@ section {
   background: linear-gradient(180deg, rgba(0, 154, 212, 0.08), transparent 75%);
 }
 
-.portfolio-carousel .carousel-card {
-  flex-basis: clamp(280px, 36vw, 400px);
+.slider-window-portfolio {
+  padding: 0.15rem 0;
+}
+
+.portfolio-slider-track .slider-card {
+  flex: 0 0 clamp(220px, 24vw, 270px);
 }
 
 .project-card {
   position: relative;
-  min-height: 430px;
+  min-height: 330px;
   overflow: hidden;
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -818,6 +877,15 @@ section {
     display: flex;
   }
 
+  .nav-zivra {
+    align-items: center;
+    margin-right: 0;
+    padding-right: 0;
+    padding-bottom: 0.8rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
   .hero {
     padding-top: 5.2rem;
   }
@@ -860,14 +928,17 @@ section {
   }
 
   .carousel-card,
-  .portfolio-carousel .carousel-card,
   .service-carousel .carousel-card,
   .video-carousel .carousel-card {
     flex-basis: min(84vw, 320px);
   }
 
+  .portfolio-slider-track .slider-card {
+    flex-basis: min(72vw, 250px);
+  }
+
   .project-card {
-    min-height: 360px;
+    min-height: 300px;
   }
 
   .partner-mark {

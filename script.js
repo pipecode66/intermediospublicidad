@@ -199,9 +199,29 @@ carousels.forEach((carousel) => {
   const track = carousel.querySelector("[data-carousel-track]");
   const prev = carousel.querySelector("[data-carousel-prev]");
   const next = carousel.querySelector("[data-carousel-next]");
+  const shouldLoop = carousel.dataset.carouselLoop === "true";
+  const interval = Number(carousel.dataset.carouselInterval || "0");
 
   if (!track || !prev || !next) {
     return;
+  }
+
+  const originalCards = Array.from(track.children);
+  const originalCount = originalCards.length;
+  let index = 0;
+  let resetTimer = null;
+  let autoplayTimer = null;
+  let scrollSyncTimer = null;
+
+  if (shouldLoop && track.dataset.cloned !== "true") {
+    originalCards.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      clone.dataset.clone = "true";
+      track.appendChild(clone);
+    });
+
+    track.dataset.cloned = "true";
   }
 
   const getStep = () => {
@@ -214,13 +234,104 @@ carousels.forEach((carousel) => {
     return card.getBoundingClientRect().width + gap;
   };
 
+  const scrollToIndex = (targetIndex, behavior = "smooth") => {
+    track.scrollTo({ left: getStep() * targetIndex, behavior });
+  };
+
+  const stopAutoplay = () => {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  };
+
+  const scheduleReset = () => {
+    if (!shouldLoop) {
+      return;
+    }
+
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => {
+      track.scrollTo({ left: 0, behavior: "auto" });
+      index = 0;
+    }, 460);
+  };
+
+  const startAutoplay = () => {
+    if (!shouldLoop || !interval) {
+      return;
+    }
+
+    stopAutoplay();
+    autoplayTimer = setInterval(() => {
+      handleNext();
+    }, interval);
+  };
+
+  const handlePrev = () => {
+    clearTimeout(resetTimer);
+
+    if (!shouldLoop) {
+      track.scrollBy({ left: -getStep(), behavior: "smooth" });
+      return;
+    }
+
+    index = index <= 0 ? originalCount - 1 : index - 1;
+    scrollToIndex(index);
+    startAutoplay();
+  };
+
+  const handleNext = () => {
+    clearTimeout(resetTimer);
+
+    if (!shouldLoop) {
+      track.scrollBy({ left: getStep(), behavior: "smooth" });
+      return;
+    }
+
+    index += 1;
+    scrollToIndex(index);
+
+    if (index >= originalCount) {
+      scheduleReset();
+    }
+
+    startAutoplay();
+  };
+
   prev.addEventListener("click", () => {
-    track.scrollBy({ left: -getStep(), behavior: "smooth" });
+    handlePrev();
   });
 
   next.addEventListener("click", () => {
-    track.scrollBy({ left: getStep(), behavior: "smooth" });
+    handleNext();
   });
+
+  if (shouldLoop) {
+    track.addEventListener("scroll", () => {
+      clearTimeout(scrollSyncTimer);
+      scrollSyncTimer = setTimeout(() => {
+        const step = getStep();
+        const rawIndex = Math.round(track.scrollLeft / step);
+
+        if (rawIndex >= originalCount) {
+          track.scrollTo({ left: 0, behavior: "auto" });
+          index = 0;
+          return;
+        }
+
+        index = Math.max(rawIndex, 0);
+      }, 120);
+    });
+
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+    window.addEventListener("resize", () => {
+      clearTimeout(resetTimer);
+      scrollToIndex(index, "auto");
+    });
+    startAutoplay();
+  }
 });
 
 if (menuToggle && mainNav) {

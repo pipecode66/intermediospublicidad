@@ -107,12 +107,12 @@ sliders.forEach((slider) => {
         return;
       }
 
-      video.muted = false;
+      video.muted = !audioUnlocked;
       const playAttempt = video.play();
 
       if (playAttempt && typeof playAttempt.catch === "function") {
         playAttempt.catch(() => {
-          video.muted = !audioUnlocked;
+          video.muted = true;
           video.play().catch(() => {});
         });
       }

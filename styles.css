@@ -432,6 +432,11 @@ section {
   overflow: hidden;
 }
 
+.slider-window-video {
+  max-width: 340px;
+  margin: 0 auto;
+}
+
 .slider-track {
   display: flex;
   gap: 1rem;
@@ -445,9 +450,12 @@ section {
 
 .video-slider-track .slider-card {
   flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .video-card {
+  width: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(14, 17, 18, 0.95));
@@ -456,7 +464,7 @@ section {
 
 .video-card video {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
   background: #000;
 }
@@ -504,12 +512,15 @@ section {
 }
 
 .portfolio-slider-track .slider-card {
-  flex: 0 0 clamp(220px, 24vw, 270px);
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .project-card {
   position: relative;
-  min-height: 330px;
+  width: min(100%, 265px);
+  min-height: 320px;
   overflow: hidden;
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -934,10 +945,11 @@ section {
   }
 
   .portfolio-slider-track .slider-card {
-    flex-basis: min(72vw, 250px);
+    flex-basis: 100%;
   }
 
   .project-card {
+    width: min(100%, 245px);
     min-height: 300px;
   }
 

@@ -514,13 +514,22 @@ section {
   background: linear-gradient(180deg, rgba(0, 154, 212, 0.08), transparent 75%);
 }
 
+.showcase .carousel-shell {
+  max-width: 1040px;
+  margin-inline: auto;
+}
+
+.portfolio-carousel {
+  gap: 0.85rem;
+}
+
 .portfolio-carousel .carousel-card {
-  flex-basis: clamp(280px, 36vw, 400px);
+  flex-basis: clamp(236px, 29vw, 320px);
 }
 
 .project-card {
   position: relative;
-  min-height: 430px;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -944,8 +953,12 @@ section {
     flex-basis: min(84vw, 320px);
   }
 
+  .portfolio-carousel .carousel-card {
+    flex-basis: min(74vw, 280px);
+  }
+
   .project-card {
-    min-height: 360px;
+    aspect-ratio: 4 / 5;
   }
 
   .partner-mark {

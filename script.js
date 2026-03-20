@@ -5,6 +5,8 @@ const counters = document.querySelectorAll("[data-counter]");
 const revealItems = document.querySelectorAll(".reveal, .reveal-stagger");
 const year = document.getElementById("year");
 const logos = document.querySelectorAll(".logo-asset");
+const carousels = document.querySelectorAll("[data-carousel]");
+const loopingTracks = document.querySelectorAll("[data-loop-track]");
 
 if (year) {
   year.textContent = new Date().getFullYear();
@@ -14,15 +16,53 @@ logos.forEach((logo) => {
   logo.addEventListener("error", () => {
     logo.classList.add("is-hidden");
 
-    const chip = logo.closest(".logo-chip");
-    if (chip) {
-      chip.classList.add("is-missing");
-    }
-
     const fallback = logo.parentElement?.querySelector(".brand-fallback");
     if (fallback) {
       fallback.classList.add("is-visible");
     }
+  });
+});
+
+loopingTracks.forEach((track) => {
+  if (track.dataset.cloned === "true") {
+    return;
+  }
+
+  const children = Array.from(track.children);
+  children.forEach((child) => {
+    const clone = child.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    track.appendChild(clone);
+  });
+
+  track.dataset.cloned = "true";
+});
+
+carousels.forEach((carousel) => {
+  const track = carousel.querySelector("[data-carousel-track]");
+  const prev = carousel.querySelector("[data-carousel-prev]");
+  const next = carousel.querySelector("[data-carousel-next]");
+
+  if (!track || !prev || !next) {
+    return;
+  }
+
+  const getStep = () => {
+    const card = track.querySelector(".carousel-card");
+    if (!card) {
+      return 320;
+    }
+
+    const gap = Number.parseFloat(window.getComputedStyle(track).gap || "0");
+    return card.getBoundingClientRect().width + gap;
+  };
+
+  prev.addEventListener("click", () => {
+    track.scrollBy({ left: -getStep(), behavior: "smooth" });
+  });
+
+  next.addEventListener("click", () => {
+    track.scrollBy({ left: getStep(), behavior: "smooth" });
   });
 });
 

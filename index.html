@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Intermedios | Publicidad que conecta</title>
-  <meta name="description" content="Intermedios diseña, produce e implementa soluciones publicitarias y de comunicación para marcas que quieren destacar.">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon2.svg">
-  <link rel="shortcut icon" href="assets/favicon/favicon2.svg">
+  <title>Intermedios | Publicidad, estrategia y arquitectura</title>
+  <meta name="description" content="Intermedios integra publicidad, arquitectura comercial y produccion visual para marcas que buscan impacto real.">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon2.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/brand/favicon2.png">
+  <link rel="apple-touch-icon" href="assets/brand/favicon2.png">
   <meta name="theme-color" content="#009ad4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +15,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="ambient">
+  <div class="ambient" aria-hidden="true">
     <span class="orb orb-a"></span>
     <span class="orb orb-b"></span>
     <span class="orb orb-c"></span>
@@ -25,7 +26,7 @@
       <a class="brand" href="#inicio" aria-label="Intermedios inicio">
         <img
           class="brand-logo logo-asset"
-          src="assets/logos/intermedios-blanco.svg"
+          src="assets/brand/logo-blanco.png"
           alt="Intermedios Publicidad y Arquitectura"
           loading="eager"
           decoding="async"
@@ -33,15 +34,15 @@
         <span class="brand-fallback">Intermedios</span>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menu">
         <span></span>
         <span></span>
       </button>
 
       <nav class="main-nav" id="mainNav">
+        <a href="#portafolio">Portafolio</a>
         <a href="#servicios">Servicios</a>
         <a href="#proceso">Proceso</a>
-        <a href="#portafolio">Portafolio</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -51,120 +52,106 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Intermedios Publicidad</p>
-          <h1>Diseñamos experiencias de marca que se ven, se recuerdan y se convierten.</h1>
+          <p class="eyebrow">Intermedios publicidad y arquitectura</p>
+          <h1>Dise&ntilde;amos espacios, mensajes y experiencias que hacen que tu marca se note.</h1>
           <p class="hero-lead">
-            Integramos creatividad, producción y estrategia para campañas en espacios físicos y digitales.
-            Desde branding hasta medios alternativos, construimos soluciones que elevan tu negocio.
+            Convertimos ideas en fachadas comerciales, remodelaciones, stands, mobiliario y piezas visuales
+            con una ejecucion realista, coherente y pensada para vender mejor.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contacto">Solicitar propuesta</a>
-            <a class="btn btn-ghost" href="#portafolio">Ver proyectos</a>
+            <a class="btn btn-ghost" href="#portafolio">Ver portafolio</a>
           </div>
           <ul class="hero-metrics">
-            <li><strong data-counter="12">0</strong><span>Años de experiencia</span></li>
+            <li><strong data-counter="12">0</strong><span>Anos de experiencia</span></li>
             <li><strong data-counter="480">0</strong><span>Proyectos ejecutados</span></li>
             <li><strong data-counter="96">0</strong><span>Clientes activos</span></li>
           </ul>
         </div>
 
-        <aside class="hero-panel reveal-stagger" style="--delay: 120ms;">
-          <h2>Lo que hacemos mejor</h2>
-          <ul>
-            <li>Arquitectura de marca y señalización comercial.</li>
-            <li>Publicidad exterior con alto impacto visual.</li>
-            <li>Diseño y producción de material POP.</li>
-            <li>Gestión de campañas y contenidos para redes.</li>
-          </ul>
-          <div class="logo-variants" aria-label="Variantes del logo de Intermedios">
-            <figure class="logo-chip logo-chip-dark">
-              <img
-                class="logo-asset"
-                src="assets/logos/intermedios-blanco.svg"
-                alt="Logo versión blanca"
-                loading="lazy"
-                decoding="async"
-              >
-            </figure>
-            <figure class="logo-chip logo-chip-light">
-              <img
-                class="logo-asset"
-                src="assets/logos/intermedios-multicolor.svg"
-                alt="Logo versión multicolor"
-                loading="lazy"
-                decoding="async"
-              >
-            </figure>
-            <figure class="logo-chip logo-chip-cyan">
-              <img
-                class="logo-asset"
-                src="assets/logos/intermedios-negro.svg"
-                alt="Logo versión negra"
-                loading="lazy"
-                decoding="async"
-              >
-            </figure>
+        <aside class="hero-panel reveal-stagger" style="--delay: 120ms;" data-carousel>
+          <div class="carousel-head carousel-head-tight">
+            <div>
+              <p class="eyebrow">Video carrusel</p>
+              <h2>Proyectos en movimiento</h2>
+              <p class="panel-copy">
+                Un recorrido rapido por montajes, detalles de ejecucion y resultados finales.
+              </p>
+            </div>
+            <div class="carousel-controls" aria-label="Controles del carrusel de videos">
+              <button class="carousel-button" type="button" data-carousel-prev aria-label="Video anterior">&larr;</button>
+              <button class="carousel-button" type="button" data-carousel-next aria-label="Video siguiente">&rarr;</button>
+            </div>
           </div>
+
+          <div class="carousel-viewport video-carousel" data-carousel-track>
+            <article class="carousel-card video-card">
+              <video controls preload="metadata" playsinline muted>
+                <source src="assets/videos/video-01.mp4" type="video/mp4">
+              </video>
+              <div class="video-meta">
+                <strong>Fachadas</strong>
+                <span>Procesos y acabados en espacios comerciales.</span>
+              </div>
+            </article>
+            <article class="carousel-card video-card">
+              <video controls preload="metadata" playsinline muted>
+                <source src="assets/videos/video-02.mp4" type="video/mp4">
+              </video>
+              <div class="video-meta">
+                <strong>Montajes</strong>
+                <span>Soluciones visuales listas para instalacion.</span>
+              </div>
+            </article>
+            <article class="carousel-card video-card">
+              <video controls preload="metadata" playsinline muted>
+                <source src="assets/videos/video-03.mp4" type="video/mp4">
+              </video>
+              <div class="video-meta">
+                <strong>Interiorismo</strong>
+                <span>Detalles que elevan la experiencia del lugar.</span>
+              </div>
+            </article>
+            <article class="carousel-card video-card">
+              <video controls preload="metadata" playsinline muted>
+                <source src="assets/videos/video-04.mp4" type="video/mp4">
+              </video>
+              <div class="video-meta">
+                <strong>Activaciones</strong>
+                <span>Formatos visuales pensados para alto impacto.</span>
+              </div>
+            </article>
+            <article class="carousel-card video-card">
+              <video controls preload="metadata" playsinline muted>
+                <source src="assets/videos/video-05.mp4" type="video/mp4">
+              </video>
+              <div class="video-meta">
+                <strong>Produccion</strong>
+                <span>Materiales, acabados y presencia de marca.</span>
+              </div>
+            </article>
+            <article class="carousel-card video-card">
+              <video controls preload="metadata" playsinline muted>
+                <source src="assets/videos/video-06.mp4" type="video/mp4">
+              </video>
+              <div class="video-meta">
+                <strong>Espacios</strong>
+                <span>Dise&ntilde;o funcional para vender y destacar.</span>
+              </div>
+            </article>
+            <article class="carousel-card video-card">
+              <video controls preload="metadata" playsinline muted>
+                <source src="assets/videos/video-07.mp4" type="video/mp4">
+              </video>
+              <div class="video-meta">
+                <strong>Resultados</strong>
+                <span>Proyectos terminados listos para ser vividos.</span>
+              </div>
+            </article>
+          </div>
+
           <a href="#servicios" class="panel-link">Explorar servicios</a>
         </aside>
-      </div>
-    </section>
-
-    <section class="services" id="servicios">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Servicios</p>
-          <h2>Una sola línea creativa para toda tu comunicación.</h2>
-        </div>
-        <div class="service-grid">
-          <article class="service-card reveal-stagger" style="--delay: 50ms;">
-            <h3>Branding</h3>
-            <p>Definimos identidad visual, tono y piezas clave para que tu marca tenga coherencia y carácter propio.</p>
-          </article>
-          <article class="service-card reveal-stagger" style="--delay: 120ms;">
-            <h3>Avisos y Fachadas</h3>
-            <p>Diseñamos y fabricamos soluciones exteriores e interiores que convierten cada punto de contacto en venta.</p>
-          </article>
-          <article class="service-card reveal-stagger" style="--delay: 190ms;">
-            <h3>Medios Alternativos</h3>
-            <p>Creamos acciones no convencionales para marcas que quieren diferenciarse con ideas memorables.</p>
-          </article>
-          <article class="service-card reveal-stagger" style="--delay: 260ms;">
-            <h3>Estrategia Digital</h3>
-            <p>Planificamos campañas en redes y contenidos tácticos orientados a alcance, posicionamiento y conversión.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="process" id="proceso">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Método</p>
-          <h2>Del diagnóstico a la ejecución, sin perder velocidad.</h2>
-        </div>
-        <ol class="process-steps">
-          <li class="reveal-stagger" style="--delay: 40ms;">
-            <span>01</span>
-            <h3>Diagnóstico</h3>
-            <p>Analizamos objetivos, contexto del negocio y oportunidades de marca.</p>
-          </li>
-          <li class="reveal-stagger" style="--delay: 110ms;">
-            <span>02</span>
-            <h3>Concepto</h3>
-            <p>Traducimos estrategia en una narrativa visual clara y accionable.</p>
-          </li>
-          <li class="reveal-stagger" style="--delay: 180ms;">
-            <span>03</span>
-            <h3>Producción</h3>
-            <p>Diseñamos piezas, materiales y experiencias listas para implementación.</p>
-          </li>
-          <li class="reveal-stagger" style="--delay: 250ms;">
-            <span>04</span>
-            <h3>Optimización</h3>
-            <p>Medimos resultados y ajustamos para mejorar alcance e impacto.</p>
-          </li>
-        </ol>
       </div>
     </section>
 
@@ -172,38 +159,205 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Portafolio</p>
-          <h2>Proyectos pensados para llamar la atención en segundos.</h2>
+          <h2>Proyectos arquitectonicos y comerciales desarrollados con material real.</h2>
         </div>
-        <div class="showcase-grid">
-          <article class="project-card reveal-stagger" style="--delay: 40ms;">
-            <img src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1000&q=80" alt="Fachada comercial moderna">
+
+        <div class="carousel-shell reveal-stagger" style="--delay: 70ms;" data-carousel>
+          <div class="carousel-head">
             <div>
-              <p>Fachadas</p>
-              <h3>Arquitectura Comercial</h3>
+              <p class="carousel-kicker">Seleccion curada</p>
+              <p class="carousel-copy">
+                Integramos fachadas, remodelacion, interiorismo, stands y mobiliario dentro de una misma narrativa visual.
+              </p>
             </div>
-          </article>
-          <article class="project-card reveal-stagger" style="--delay: 100ms;">
-            <img src="https://images.unsplash.com/photo-1599658880436-c61792e70672?auto=format&fit=crop&w=1000&q=80" alt="Diseño de avisos publicitarios">
-            <div>
-              <p>Avisos</p>
-              <h3>Publicidad Exterior</h3>
+            <div class="carousel-controls" aria-label="Controles del portafolio">
+              <button class="carousel-button" type="button" data-carousel-prev aria-label="Proyecto anterior">&larr;</button>
+              <button class="carousel-button" type="button" data-carousel-next aria-label="Proyecto siguiente">&rarr;</button>
             </div>
-          </article>
-          <article class="project-card reveal-stagger" style="--delay: 160ms;">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80" alt="Campaña de marketing digital">
-            <div>
-              <p>Digital</p>
-              <h3>Campañas Integradas</h3>
-            </div>
-          </article>
-          <article class="project-card reveal-stagger" style="--delay: 220ms;">
-            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80" alt="Equipo creativo en sesión de estrategia">
-            <div>
-              <p>Estrategia</p>
-              <h3>Dirección de Marca</h3>
-            </div>
-          </article>
+          </div>
+
+          <div class="carousel-viewport portfolio-carousel" data-carousel-track>
+            <article class="carousel-card project-card">
+              <img src="assets/projects/fachada-mcnolia.jpg" alt="Fachada comercial de McNolia Bakery" loading="lazy" decoding="async">
+              <div class="project-copy">
+                <p>Fachadas</p>
+                <h3>McNolia Bakery</h3>
+                <span>Adecuacion exterior y presencia de marca en punto fisico.</span>
+              </div>
+            </article>
+            <article class="carousel-card project-card">
+              <img src="assets/projects/fachada-guilles.jpg" alt="Proyecto comercial para Helados G" loading="lazy" decoding="async">
+              <div class="project-copy">
+                <p>Fachadas</p>
+                <h3>Helados G</h3>
+                <span>Intervencion visual con alto reconocimiento desde calle.</span>
+              </div>
+            </article>
+            <article class="carousel-card project-card">
+              <img src="assets/projects/interior-vidavet.jpg" alt="Adecuacion interior de VidaVet" loading="lazy" decoding="async">
+              <div class="project-copy">
+                <p>Remodelacion</p>
+                <h3>VidaVet</h3>
+                <span>Interior limpio y funcional para mejorar recorrido y atencion.</span>
+              </div>
+            </article>
+            <article class="carousel-card project-card">
+              <img src="assets/projects/diseno-mcnolia.jpg" alt="Diseno arquitectonico de McNolia" loading="lazy" decoding="async">
+              <div class="project-copy">
+                <p>Diseno arquitectonico</p>
+                <h3>McNolia</h3>
+                <span>Espacios planteados desde uso, materialidad y circulacion.</span>
+              </div>
+            </article>
+            <article class="carousel-card project-card">
+              <img src="assets/projects/diseno-intermedios.jpg" alt="Diseno interior ejecutado por Intermedios" loading="lazy" decoding="async">
+              <div class="project-copy">
+                <p>Interiorismo</p>
+                <h3>Intermedios</h3>
+                <span>Construccion de ambientes que refuerzan identidad de marca.</span>
+              </div>
+            </article>
+            <article class="carousel-card project-card">
+              <img src="assets/projects/stand-avimax.png" alt="Stand publicitario de Avimax" loading="lazy" decoding="async">
+              <div class="project-copy">
+                <p>Stand</p>
+                <h3>Avimax</h3>
+                <span>Montaje corporativo pensado para exhibicion y conversacion.</span>
+              </div>
+            </article>
+            <article class="carousel-card project-card">
+              <img src="assets/projects/remodelacion-deux.png" alt="Intervencion locativa para Deux" loading="lazy" decoding="async">
+              <div class="project-copy">
+                <p>Remodelacion locativa</p>
+                <h3>Deux</h3>
+                <span>Detalle luminoso y experiencia fotogenica dentro del espacio.</span>
+              </div>
+            </article>
+            <article class="carousel-card project-card">
+              <img src="assets/projects/mobiliario-lobby.jpg" alt="Mobiliario comercial disenado por Intermedios" loading="lazy" decoding="async">
+              <div class="project-copy">
+                <p>Mobiliario</p>
+                <h3>Lobby comercial</h3>
+                <span>Mobiliario a medida para funcionalidad, espera y exhibicion.</span>
+              </div>
+            </article>
+            <article class="carousel-card project-card">
+              <img src="assets/projects/mobiliario-kiosko.png" alt="Concepto de kiosko comercial" loading="lazy" decoding="async">
+              <div class="project-copy">
+                <p>Mobiliario</p>
+                <h3>Kiosko especial</h3>
+                <span>Propuesta de diseno para venta rapida y experiencia de marca.</span>
+              </div>
+            </article>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="services" id="servicios">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Servicios</p>
+          <h2>Servicios pensados para construir visibilidad, experiencia y conversion.</h2>
+        </div>
+
+        <div class="carousel-shell reveal-stagger" style="--delay: 110ms;" data-carousel>
+          <div class="carousel-head">
+            <div>
+              <p class="carousel-kicker">Carrusel de servicios</p>
+              <p class="carousel-copy">
+                Mantuvimos los frentes mas comerciales y sumamos las lineas arquitectonicas que hoy hacen parte del portafolio.
+              </p>
+            </div>
+            <div class="carousel-controls" aria-label="Controles de servicios">
+              <button class="carousel-button" type="button" data-carousel-prev aria-label="Servicio anterior">&larr;</button>
+              <button class="carousel-button" type="button" data-carousel-next aria-label="Servicio siguiente">&rarr;</button>
+            </div>
+          </div>
+
+          <div class="carousel-viewport service-carousel" data-carousel-track>
+            <article class="carousel-card service-card">
+              <img src="assets/projects/fachada-mcnolia.jpg" alt="Avisos y fachadas comerciales" loading="lazy" decoding="async">
+              <div class="service-body">
+                <h3>Avisos y Fachadas</h3>
+                <p>Desarrollamos frentes comerciales que mejoran lectura, recordacion y atraccion desde la calle.</p>
+              </div>
+            </article>
+            <article class="carousel-card service-card">
+              <img src="assets/projects/stand-reward.png" alt="Medios alternativos y activaciones" loading="lazy" decoding="async">
+              <div class="service-body">
+                <h3>Medios Alternativos</h3>
+                <p>Proponemos formatos no convencionales para que la marca tenga presencia distinta y memorable.</p>
+              </div>
+            </article>
+            <article class="carousel-card service-card">
+              <img src="assets/brand/papeleria-cover.jpeg" alt="Papeleria corporativa de Intermedios" loading="lazy" decoding="async">
+              <div class="service-body">
+                <h3>Papeleria</h3>
+                <p>Tarjetas, piezas impresas, soportes corporativos y acabados graficos alineados con tu identidad.</p>
+              </div>
+            </article>
+            <article class="carousel-card service-card">
+              <img src="assets/projects/stand-avimax.png" alt="Stand publicitario de Avimax" loading="lazy" decoding="async">
+              <div class="service-body">
+                <h3>Stand Publicitarios</h3>
+                <p>Creamos espacios modulares y experienciales para ferias, lanzamientos y exhibiciones de marca.</p>
+              </div>
+            </article>
+            <article class="carousel-card service-card">
+              <img src="assets/projects/diseno-mcnolia.jpg" alt="Diseno arquitectonico comercial" loading="lazy" decoding="async">
+              <div class="service-body">
+                <h3>Dise&ntilde;o Arquitectonico</h3>
+                <p>Dise&ntilde;amos espacios comerciales con criterio funcional, identidad clara y factibilidad constructiva.</p>
+              </div>
+            </article>
+            <article class="carousel-card service-card">
+              <img src="assets/projects/remodelacion-deux.png" alt="Remodelacion locativa de interiores" loading="lazy" decoding="async">
+              <div class="service-body">
+                <h3>Remodelacion Locativa</h3>
+                <p>Actualizamos locales y zonas de atencion para que se vean mejor, operen mejor y vendan mejor.</p>
+              </div>
+            </article>
+            <article class="carousel-card service-card">
+              <img src="assets/projects/mobiliario-lobby.jpg" alt="Diseno mobiliario comercial" loading="lazy" decoding="async">
+              <div class="service-body">
+                <h3>Dise&ntilde;o Mobiliario</h3>
+                <p>Desarrollamos muebles a medida para exhibicion, servicio, almacenamiento y experiencia del cliente.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="proceso">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Metodo</p>
+          <h2>Del concepto a la entrega final, sin perder control del detalle.</h2>
+        </div>
+        <ol class="process-steps">
+          <li class="reveal-stagger" style="--delay: 40ms;">
+            <span>01</span>
+            <h3>Levantamiento</h3>
+            <p>Revisamos el espacio, los objetivos comerciales y el alcance real del proyecto.</p>
+          </li>
+          <li class="reveal-stagger" style="--delay: 110ms;">
+            <span>02</span>
+            <h3>Dise&ntilde;o</h3>
+            <p>Traducimos la idea en una propuesta visual, tecnica y alineada con marca.</p>
+          </li>
+          <li class="reveal-stagger" style="--delay: 180ms;">
+            <span>03</span>
+            <h3>Produccion</h3>
+            <p>Fabricamos, coordinamos y organizamos cada componente necesario para ejecutar.</p>
+          </li>
+          <li class="reveal-stagger" style="--delay: 250ms;">
+            <span>04</span>
+            <h3>Entrega</h3>
+            <p>Instalamos, afinamos acabados y dejamos listo el espacio para operar y destacar.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -213,17 +367,30 @@
           <p class="eyebrow">Aliados</p>
           <h2>Construimos resultados junto a marcas que apuestan por crecer.</h2>
           <p>
-            Cada alianza suma capacidades: diseño, producción, estrategia y ejecución comercial. Así logramos campañas
-            más sólidas, con identidad clara y mejor rendimiento en cada canal.
+            Cada alianza suma capacidades: dise&ntilde;o, produccion, estrategia y ejecucion comercial. Asi logramos campa&ntilde;as
+            mas solidas, con identidad clara y mejor rendimiento en cada canal.
           </p>
         </div>
-        <div class="partners-badges reveal-stagger" style="--delay: 120ms;">
-          <span>Retail</span>
-          <span>Restaurantes</span>
-          <span>Salud</span>
-          <span>Educación</span>
-          <span>Construcción</span>
-          <span>Servicios</span>
+
+        <div class="partners-marquee reveal-stagger" style="--delay: 120ms;">
+          <div class="partners-track" data-loop-track>
+            <span class="partner-mark"><img src="assets/partners/recurso-18.png" alt="Logo aliado 18" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-19.png" alt="Logo aliado 19" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-21.png" alt="Logo aliado 21" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-22.png" alt="Logo aliado 22" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-23.png" alt="Logo aliado 23" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-24.png" alt="Logo aliado 24" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-25.png" alt="Logo aliado 25" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-26.png" alt="Logo aliado 26" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-27.png" alt="Logo aliado 27" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-28.png" alt="Logo aliado 28" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-29.png" alt="Logo aliado 29" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-30.png" alt="Logo aliado 30" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-31.png" alt="Logo aliado 31" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-32.png" alt="Logo aliado 32" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-33.png" alt="Logo aliado 33" loading="lazy" decoding="async"></span>
+            <span class="partner-mark"><img src="assets/partners/recurso-37.png" alt="Logo aliado 37" loading="lazy" decoding="async"></span>
+          </div>
         </div>
       </div>
     </section>
@@ -232,12 +399,12 @@
       <div class="container contact-grid">
         <div class="contact-copy reveal">
           <p class="eyebrow">Contacto</p>
-          <h2>Conversemos sobre tu próximo proyecto.</h2>
-          <p>Cuéntanos qué necesitas y te proponemos una ruta clara para ejecutar con calidad y tiempos reales.</p>
+          <h2>Conversemos sobre tu proximo proyecto.</h2>
+          <p>Cuentanos que necesitas y te proponemos una ruta clara para ejecutar con calidad y tiempos reales.</p>
           <ul>
             <li><strong>WhatsApp:</strong> +57 301 395 1177</li>
-            <li><strong>Teléfono:</strong> (607) 500 98 88</li>
-            <li><strong>Ubicación:</strong> Cúcuta, Norte de Santander</li>
+            <li><strong>Telefono:</strong> (607) 500 98 88</li>
+            <li><strong>Ubicacion:</strong> Cucuta, Norte de Santander</li>
           </ul>
           <div class="social-links" aria-label="Redes sociales de Intermedios">
             <a class="social-link" href="https://www.facebook.com/Intermedioss/?locale=es_LA" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -245,6 +412,7 @@
             <a class="social-link" href="https://www.tiktok.com/@intermediospubli" target="_blank" rel="noopener noreferrer">TikTok</a>
           </div>
         </div>
+
         <form class="contact-form reveal-stagger" style="--delay: 140ms;">
           <label for="nombre">Nombre</label>
           <input id="nombre" type="text" placeholder="Tu nombre" required>
@@ -253,7 +421,7 @@
           <input id="correo" type="email" placeholder="tu@empresa.com" required>
 
           <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" rows="4" placeholder="¿Qué quieres construir con tu marca?" required></textarea>
+          <textarea id="mensaje" rows="4" placeholder="Que quieres construir con tu marca?" required></textarea>
 
           <button type="submit">Enviar solicitud</button>
         </form>
@@ -263,10 +431,10 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Intermedios Publicidad. Todos los derechos reservados.</p>
+      <p>&copy; <span id="year"></span> Intermedios Publicidad. Todos los derechos reservados.</p>
       <img
         class="footer-logo logo-asset"
-        src="assets/logos/intermedios-blanco.svg"
+        src="assets/brand/logo-blanco.png"
         alt="Intermedios Publicidad y Arquitectura"
         loading="lazy"
         decoding="async"

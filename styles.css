@@ -789,6 +789,7 @@ section {
 .zivra-notes {
   margin-top: 1.15rem;
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.8rem;
 }
 
@@ -797,6 +798,12 @@ section {
   border-radius: 20px;
   background: rgba(59, 59, 53, 0.58);
   border: 1px solid rgba(173, 252, 3, 0.16);
+}
+
+.zivra-note:last-child {
+  grid-column: 1 / -1;
+  width: min(100%, calc(50% - 0.4rem));
+  justify-self: center;
 }
 
 .zivra-note strong {
@@ -1236,6 +1243,14 @@ section {
 
   .zivra-pills {
     gap: 0.5rem;
+  }
+
+  .zivra-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .zivra-note:last-child {
+    width: 100%;
   }
 
   .partner-mark {

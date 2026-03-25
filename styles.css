@@ -167,42 +167,68 @@ video {
 }
 
 .nav-zivra {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.08rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
   margin-right: 0.35rem;
   padding-right: 0.7rem;
   border-right: 1px solid rgba(255, 255, 255, 0.12);
+  isolation: isolate;
 }
 
-.nav-zivra-title {
-  font-family: "Orbitron", sans-serif;
-  font-size: 1.08rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  background: linear-gradient(110deg, #ffffff 18%, #ffffff 34%, #66ff99 50%, #ffffff 66%, #ffffff 82%);
-  background-size: 260% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: zivra-flow 3.2s linear infinite;
+.nav-zivra::before {
+  content: "";
+  position: absolute;
+  inset: -6px -2px -6px 0;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(173, 252, 3, 0.26) 0, rgba(173, 252, 3, 0.06) 48%, transparent 78%);
+  filter: blur(14px);
+  opacity: 0.82;
+  z-index: -1;
+  animation: zivra-nav-glow 3.8s ease-in-out infinite;
 }
 
-.nav-zivra small {
-  font-size: 0.54rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #9df5c0;
+.nav-zivra-logo {
+  width: clamp(86px, 8vw, 120px);
+  height: auto;
+  display: block;
+  filter:
+    drop-shadow(0 0 8px rgba(173, 252, 3, 0.52))
+    drop-shadow(0 0 18px rgba(173, 252, 3, 0.18));
+  animation: zivra-logo-neon 4s ease-in-out infinite;
 }
 
-@keyframes zivra-flow {
-  from {
-    background-position: 200% 0;
+.nav-zivra:hover .nav-zivra-logo {
+  transform: scale(1.04);
+}
+
+@keyframes zivra-nav-glow {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.98);
   }
 
-  to {
-    background-position: -60% 0;
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes zivra-logo-neon {
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 0 8px rgba(173, 252, 3, 0.52))
+      drop-shadow(0 0 18px rgba(173, 252, 3, 0.18));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 10px rgba(255, 255, 255, 0.42))
+      drop-shadow(0 0 28px rgba(173, 252, 3, 0.36));
   }
 }
 
@@ -687,6 +713,119 @@ section {
   margin-bottom: 0.4rem;
 }
 
+.zivra-section {
+  --zivra-green: #adfc03;
+  --zivra-black: #000000;
+  --zivra-white: #ffffff;
+  --zivra-graphite: #3b3b35;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(173, 252, 3, 0.16), transparent 22%),
+    radial-gradient(circle at 14% 78%, rgba(173, 252, 3, 0.09), transparent 20%),
+    linear-gradient(160deg, #040404 0%, #13130f 46%, #000000 100%);
+}
+
+.zivra-section .eyebrow {
+  color: var(--zivra-green);
+}
+
+.zivra-section .section-head h2,
+.zivra-section .section-intro,
+.zivra-section .zivra-note span {
+  color: var(--zivra-white);
+}
+
+.zivra-visual {
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border-radius: 30px;
+  background:
+    linear-gradient(145deg, rgba(59, 59, 53, 0.88), rgba(0, 0, 0, 0.98)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(173, 252, 3, 0.16);
+  box-shadow: 0 26px 54px rgba(0, 0, 0, 0.42);
+}
+
+.zivra-logo-frame {
+  min-height: 340px;
+  padding: 1.8rem;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(173, 252, 3, 0.14), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(59, 59, 53, 0.48));
+  border: 1px solid rgba(173, 252, 3, 0.16);
+}
+
+.zivra-logo-display {
+  width: min(100%, 430px);
+  height: auto;
+  display: block;
+  filter:
+    drop-shadow(0 0 10px rgba(173, 252, 3, 0.55))
+    drop-shadow(0 0 24px rgba(173, 252, 3, 0.2));
+  animation: zivra-section-float 4.2s ease-in-out infinite;
+}
+
+.zivra-pills {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.zivra-pills span {
+  padding: 0.48rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(173, 252, 3, 0.08);
+  border: 1px solid rgba(173, 252, 3, 0.22);
+  color: var(--zivra-green);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.zivra-notes {
+  margin-top: 1.15rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.zivra-note {
+  padding: 0.95rem 1rem;
+  border-radius: 20px;
+  background: rgba(59, 59, 53, 0.58);
+  border: 1px solid rgba(173, 252, 3, 0.16);
+}
+
+.zivra-note strong {
+  display: block;
+  margin-bottom: 0.28rem;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--zivra-green);
+}
+
+@keyframes zivra-section-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    filter:
+      drop-shadow(0 0 10px rgba(173, 252, 3, 0.55))
+      drop-shadow(0 0 24px rgba(173, 252, 3, 0.2));
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.01);
+    filter:
+      drop-shadow(0 0 12px rgba(255, 255, 255, 0.28))
+      drop-shadow(0 0 34px rgba(173, 252, 3, 0.34));
+  }
+}
+
 .process-steps {
   margin: 1.7rem 0 0;
   padding: 0;
@@ -999,6 +1138,10 @@ section {
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
+  .nav-zivra-logo {
+    width: 110px;
+  }
+
   .hero {
     padding-top: 5.2rem;
   }
@@ -1049,6 +1192,10 @@ section {
     max-width: none;
   }
 
+  .nav-zivra-logo {
+    width: 98px;
+  }
+
   .hero-copy h1 {
     font-size: clamp(2.2rem, 12vw, 3.55rem);
   }
@@ -1080,6 +1227,15 @@ section {
   .video-nav {
     width: 38px;
     height: 38px;
+  }
+
+  .zivra-logo-frame {
+    min-height: 260px;
+    padding: 1.2rem;
+  }
+
+  .zivra-pills {
+    gap: 0.5rem;
   }
 
   .partner-mark {

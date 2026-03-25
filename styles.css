@@ -350,7 +350,11 @@ section {
   align-items: center;
   justify-content: center;
   min-height: 100%;
-  padding: 1.35rem 1rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
 }
 
 .hero-panel h2 {
@@ -960,7 +964,7 @@ section {
   }
 
   .hero-panel-video {
-    padding-inline: 0.85rem;
+    padding: 0;
   }
 }
 

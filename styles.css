@@ -241,7 +241,7 @@ section {
 }
 
 .section-head h2 {
-  max-width: min(26ch, 100%);
+  max-width: min(34ch, 100%);
   font-size: clamp(2rem, 4vw, 3.25rem);
   text-wrap: balance;
 }
@@ -684,7 +684,7 @@ section {
 }
 
 .partners-copy h2 {
-  max-width: min(26ch, 100%);
+  max-width: min(32ch, 100%);
   font-size: clamp(2rem, 4vw, 3.2rem);
   text-wrap: balance;
 }
@@ -744,7 +744,7 @@ section {
 }
 
 .contact-copy h2 {
-  max-width: min(26ch, 100%);
+  max-width: min(32ch, 100%);
   font-size: clamp(2rem, 4vw, 3rem);
   text-wrap: balance;
 }

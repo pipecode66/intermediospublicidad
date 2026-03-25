@@ -73,67 +73,47 @@
           </ul>
         </div>
 
-        <aside class="hero-panel reveal-stagger" style="--delay: 120ms;" data-slider="video">
-          <div class="carousel-head carousel-head-tight">
-            <div>
-              <p class="eyebrow">Video carrusel</p>
-              <h2>Proyectos en movimiento</h2>
-              <p class="panel-copy">
-                Un recorrido rapido por montajes, detalles de ejecucion y resultados finales.
-              </p>
-            </div>
-            <div class="carousel-controls" aria-label="Controles del carrusel de videos">
-              <button class="carousel-button" type="button" data-slider-prev aria-label="Video anterior">&larr;</button>
-              <button class="carousel-button" type="button" data-slider-next aria-label="Video siguiente">&rarr;</button>
-            </div>
-          </div>
+        <aside class="hero-panel hero-panel-video reveal-stagger" style="--delay: 120ms;" data-slider="video">
+          <div class="video-slider-stage" aria-label="Carrusel de videos destacados">
+            <button class="carousel-button video-nav video-nav-prev" type="button" data-slider-prev aria-label="Video anterior">&larr;</button>
 
-          <div class="slider-window slider-window-video">
-            <div class="slider-track video-slider-track" data-slider-track>
-              <article class="slider-card video-card" data-video-title="Fachadas" data-video-description="Procesos y acabados en espacios comerciales.">
-                <video controls preload="metadata" playsinline autoplay muted>
-                  <source src="assets/videos/video-01.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="slider-card video-card" data-video-title="Montajes" data-video-description="Soluciones visuales listas para instalacion.">
-                <video controls preload="metadata" playsinline autoplay muted>
-                  <source src="assets/videos/video-02.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="slider-card video-card" data-video-title="Interiorismo" data-video-description="Detalles que elevan la experiencia del lugar.">
-                <video controls preload="metadata" playsinline autoplay muted>
-                  <source src="assets/videos/video-03.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="slider-card video-card" data-video-title="Activaciones" data-video-description="Formatos visuales pensados para alto impacto.">
-                <video controls preload="metadata" playsinline autoplay muted>
-                  <source src="assets/videos/video-04.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="slider-card video-card" data-video-title="Produccion" data-video-description="Materiales, acabados y presencia de marca.">
-                <video controls preload="metadata" playsinline autoplay muted>
-                  <source src="assets/videos/video-05.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="slider-card video-card" data-video-title="Espacios" data-video-description="Dise&ntilde;o funcional para vender y destacar.">
-                <video controls preload="metadata" playsinline autoplay muted>
-                  <source src="assets/videos/video-06.mp4" type="video/mp4">
-                </video>
-              </article>
-              <article class="slider-card video-card" data-video-title="Resultados" data-video-description="Proyectos terminados listos para ser vividos.">
-                <video controls preload="metadata" playsinline autoplay muted>
-                  <source src="assets/videos/video-07.mp4" type="video/mp4">
-                </video>
-              </article>
+            <div class="slider-window slider-window-video">
+              <div class="slider-track video-slider-track" data-slider-track>
+                <article class="slider-card video-card" data-video-title="Fachadas" data-video-description="Procesos y acabados en espacios comerciales.">
+                  <video controls preload="metadata" playsinline autoplay muted>
+                    <source src="assets/videos/video-01.mp4" type="video/mp4">
+                  </video>
+                </article>
+                <article class="slider-card video-card" data-video-title="Montajes" data-video-description="Soluciones visuales listas para instalacion.">
+                  <video controls preload="metadata" playsinline autoplay muted>
+                    <source src="assets/videos/video-02.mp4" type="video/mp4">
+                  </video>
+                </article>
+                <article class="slider-card video-card" data-video-title="Activaciones" data-video-description="Formatos visuales pensados para alto impacto.">
+                  <video controls preload="metadata" playsinline autoplay muted>
+                    <source src="assets/videos/video-04.mp4" type="video/mp4">
+                  </video>
+                </article>
+                <article class="slider-card video-card" data-video-title="Produccion" data-video-description="Materiales, acabados y presencia de marca.">
+                  <video controls preload="metadata" playsinline autoplay muted>
+                    <source src="assets/videos/video-05.mp4" type="video/mp4">
+                  </video>
+                </article>
+                <article class="slider-card video-card" data-video-title="Espacios" data-video-description="Dise&ntilde;o funcional para vender y destacar.">
+                  <video controls preload="metadata" playsinline autoplay muted>
+                    <source src="assets/videos/video-06.mp4" type="video/mp4">
+                  </video>
+                </article>
+                <article class="slider-card video-card" data-video-title="Resultados" data-video-description="Proyectos terminados listos para ser vividos.">
+                  <video controls preload="metadata" playsinline autoplay muted>
+                    <source src="assets/videos/video-07.mp4" type="video/mp4">
+                  </video>
+                </article>
+              </div>
             </div>
-          </div>
 
-          <div class="video-caption" data-video-caption>
-            <strong data-video-caption-title>Fachadas</strong>
-            <span data-video-caption-description>Procesos y acabados en espacios comerciales.</span>
+            <button class="carousel-button video-nav video-nav-next" type="button" data-slider-next aria-label="Video siguiente">&rarr;</button>
           </div>
-
-          <a href="#servicios" class="panel-link">Explorar servicios</a>
         </aside>
       </div>
     </section>
